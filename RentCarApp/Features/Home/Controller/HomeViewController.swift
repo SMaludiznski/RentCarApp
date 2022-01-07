@@ -15,6 +15,9 @@ final class HomeViewController: UIViewController {
     private lazy var navTitleLabel: NavTitleLabel = NavTitleLabel()
     private lazy var searchBar: SearchBar = SearchBar()
     
+    private var selectedItem: IndexPath? = nil
+    private var filter: String = ""
+    
     private lazy var brandsCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -25,14 +28,14 @@ final class HomeViewController: UIViewController {
     private lazy var carsCollection: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private var cars: [Car] = []
-    private var brands: [String] = ["Mercedes", "Audi"]
+    private var brands: [String] = ["", "Tesla", "Audi", "Mercedes", "Kia"]
     
     private lazy var mainStack: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.backgroundColor = UIColor(named: "Background")
-        stack.spacing = 15
+        stack.spacing = 10
         return stack
     }()
     
@@ -68,7 +71,7 @@ final class HomeViewController: UIViewController {
         NSLayoutConstraint.activate([
             mainStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             mainStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            mainStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            mainStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             mainStack.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             brandsCollection.heightAnchor.constraint(equalToConstant: 90)
@@ -93,13 +96,13 @@ final class HomeViewController: UIViewController {
     
     private func setupBrandsCollection() {
         setupCollection(brandsCollection)
-        brandsCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        brandsCollection.register(BrandCell.self, forCellWithReuseIdentifier: BrandCell.identifier)
         brandsCollection.showsHorizontalScrollIndicator = false
     }
     
     private func setupCarsCollection() {
         setupCollection(carsCollection)
-        carsCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        carsCollection.register(CarCell.self, forCellWithReuseIdentifier: CarCell.identifier)
         carsCollection.showsVerticalScrollIndicator = false
     }
     
@@ -143,7 +146,7 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == brandsCollection {
-            return 5
+            return brands.count
         }
         
         return cars.count
@@ -151,28 +154,55 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == brandsCollection {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-            cell.backgroundColor = .systemYellow
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BrandCell.identifier, for: indexPath) as? BrandCell else {
+                fatalError()
+            }
+            
+            if indexPath.row == 0 {
+                selectedItem = indexPath
+            }
+            
+            let brand = brands[indexPath.row]
+            cell.configureCell(with: brand)
             
             return cell
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemPink.withAlphaComponent(0.5)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CarCell.identifier, for: indexPath) as? CarCell else {
+            fatalError()
+        }
+        
+        let car = cars[indexPath.row]
+        cell.configureCell(with: car)
 
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == brandsCollection, selectedItem != indexPath {
+            
+            guard let selectedItem = selectedItem,
+                    let cell = brandsCollection.cellForItem(at: indexPath) as? BrandCell,
+                    let oldCell = brandsCollection.cellForItem(at: selectedItem) as? BrandCell else {
+                      fatalError()
+                  }
+            
+            self.selectedItem = indexPath
+            oldCell.changeCellState()
+            cell.changeCellState()
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == brandsCollection {
-            return CGSize(width: 85, height: 85)
+            return CGSize(width: 80, height: 80)
         }
-        return CGSize(width: mainStack.bounds.size.width, height: 200)
+        return CGSize(width: mainStack.bounds.size.width, height: 250)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == brandsCollection {
-            return 15
+            return 20
         }
         return 30
     }

@@ -20,6 +20,8 @@
 		B8C74BCB278756770089BE85 /* NavTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BCA278756770089BE85 /* NavTitleLabel.swift */; };
 		B8C74BCD27875B980089BE85 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BCC27875B980089BE85 /* SearchBar.swift */; };
 		B8C74BCF27878C950089BE85 /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BCE27878C950089BE85 /* SectionTitle.swift */; };
+		B8C74BD12788AEED0089BE85 /* BrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BD02788AEED0089BE85 /* BrandCell.swift */; };
+		B8C74BD32788CE990089BE85 /* CarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BD22788CE990089BE85 /* CarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		B8C74BCA278756770089BE85 /* NavTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTitleLabel.swift; sourceTree = "<group>"; };
 		B8C74BCC27875B980089BE85 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		B8C74BCE27878C950089BE85 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
+		B8C74BD02788AEED0089BE85 /* BrandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCell.swift; sourceTree = "<group>"; };
+		B8C74BD22788CE990089BE85 /* CarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 				B8C74BCA278756770089BE85 /* NavTitleLabel.swift */,
 				B8C74BCC27875B980089BE85 /* SearchBar.swift */,
 				B8C74BCE27878C950089BE85 /* SectionTitle.swift */,
+				B8C74BD02788AEED0089BE85 /* BrandCell.swift */,
+				B8C74BD22788CE990089BE85 /* CarCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -235,11 +241,13 @@
 				B8C74BCF27878C950089BE85 /* SectionTitle.swift in Sources */,
 				B8C74BA4278753010089BE85 /* SceneDelegate.swift in Sources */,
 				B8C74BC22787543F0089BE85 /* Car.swift in Sources */,
+				B8C74BD12788AEED0089BE85 /* BrandCell.swift in Sources */,
 				B8C74BBC278753D10089BE85 /* HomeViewController.swift in Sources */,
 				B8C74BC5278755B10089BE85 /* NetwrokingErrors.swift in Sources */,
 				B8C74BC9278755FD0089BE85 /* NetworkingManager.swift in Sources */,
 				B8C74BCD27875B980089BE85 /* SearchBar.swift in Sources */,
 				B8C74BC7278755E70089BE85 /* ParseDataManager.swift in Sources */,
+				B8C74BD32788CE990089BE85 /* CarCell.swift in Sources */,
 				B8C74BC0278753F10089BE85 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

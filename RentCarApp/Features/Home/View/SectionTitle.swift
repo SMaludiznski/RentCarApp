@@ -23,5 +23,4 @@ final class SectionTitle: UILabel {
         self.font = UIFont(name: "Avenir-Medium", size: 23)
         self.textColor = UIColor(named: "Font")
     }
-
 }
