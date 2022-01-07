@@ -9,21 +9,35 @@
 /* Begin PBXBuildFile section */
 		B8C74BA2278753010089BE85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BA1278753010089BE85 /* AppDelegate.swift */; };
 		B8C74BA4278753010089BE85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BA3278753010089BE85 /* SceneDelegate.swift */; };
-		B8C74BA6278753010089BE85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BA5278753010089BE85 /* ViewController.swift */; };
-		B8C74BA9278753010089BE85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8C74BA7278753010089BE85 /* Main.storyboard */; };
 		B8C74BAB278753010089BE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8C74BAA278753010089BE85 /* Assets.xcassets */; };
 		B8C74BAE278753010089BE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8C74BAC278753010089BE85 /* LaunchScreen.storyboard */; };
+		B8C74BBC278753D10089BE85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BBB278753D10089BE85 /* HomeViewController.swift */; };
+		B8C74BC0278753F10089BE85 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BBF278753F10089BE85 /* Constants.swift */; };
+		B8C74BC22787543F0089BE85 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BC12787543F0089BE85 /* Car.swift */; };
+		B8C74BC5278755B10089BE85 /* NetwrokingErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BC4278755B10089BE85 /* NetwrokingErrors.swift */; };
+		B8C74BC7278755E70089BE85 /* ParseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BC6278755E70089BE85 /* ParseDataManager.swift */; };
+		B8C74BC9278755FD0089BE85 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BC8278755FD0089BE85 /* NetworkingManager.swift */; };
+		B8C74BCB278756770089BE85 /* NavTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BCA278756770089BE85 /* NavTitleLabel.swift */; };
+		B8C74BCD27875B980089BE85 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BCC27875B980089BE85 /* SearchBar.swift */; };
+		B8C74BCF27878C950089BE85 /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C74BCE27878C950089BE85 /* SectionTitle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B8C74B9E278753010089BE85 /* RentCarApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RentCarApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8C74BA1278753010089BE85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8C74BA3278753010089BE85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B8C74BA5278753010089BE85 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B8C74BA8278753010089BE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8C74BAA278753010089BE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8C74BAD278753010089BE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8C74BAF278753010089BE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8C74BBB278753D10089BE85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B8C74BBF278753F10089BE85 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B8C74BC12787543F0089BE85 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		B8C74BC4278755B10089BE85 /* NetwrokingErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwrokingErrors.swift; sourceTree = "<group>"; };
+		B8C74BC6278755E70089BE85 /* ParseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseDataManager.swift; sourceTree = "<group>"; };
+		B8C74BC8278755FD0089BE85 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		B8C74BCA278756770089BE85 /* NavTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTitleLabel.swift; sourceTree = "<group>"; };
+		B8C74BCC27875B980089BE85 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		B8C74BCE27878C950089BE85 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +70,94 @@
 		B8C74BA0278753010089BE85 /* RentCarApp */ = {
 			isa = PBXGroup;
 			children = (
-				B8C74BA1278753010089BE85 /* AppDelegate.swift */,
-				B8C74BA3278753010089BE85 /* SceneDelegate.swift */,
-				B8C74BA5278753010089BE85 /* ViewController.swift */,
-				B8C74BA7278753010089BE85 /* Main.storyboard */,
+				B8C74BB5278753410089BE85 /* App */,
+				B8C74BB62787538F0089BE85 /* Features */,
+				B8C74BBD278753D90089BE85 /* Base */,
 				B8C74BAA278753010089BE85 /* Assets.xcassets */,
-				B8C74BAC278753010089BE85 /* LaunchScreen.storyboard */,
 				B8C74BAF278753010089BE85 /* Info.plist */,
 			);
 			path = RentCarApp;
+			sourceTree = "<group>";
+		};
+		B8C74BB5278753410089BE85 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B8C74BA1278753010089BE85 /* AppDelegate.swift */,
+				B8C74BA3278753010089BE85 /* SceneDelegate.swift */,
+				B8C74BAC278753010089BE85 /* LaunchScreen.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B8C74BB62787538F0089BE85 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B8C74BB72787539A0089BE85 /* Home */,
+				B8C74BC32787559B0089BE85 /* Networking */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B8C74BB72787539A0089BE85 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B8C74BB82787539F0089BE85 /* Model */,
+				B8C74BBA278753AF0089BE85 /* View */,
+				B8C74BB9278753A50089BE85 /* Controller */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B8C74BB82787539F0089BE85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B8C74BC12787543F0089BE85 /* Car.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B8C74BB9278753A50089BE85 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B8C74BBB278753D10089BE85 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B8C74BBA278753AF0089BE85 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8C74BCA278756770089BE85 /* NavTitleLabel.swift */,
+				B8C74BCC27875B980089BE85 /* SearchBar.swift */,
+				B8C74BCE27878C950089BE85 /* SectionTitle.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B8C74BBD278753D90089BE85 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B8C74BBE278753E20089BE85 /* Constants */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B8C74BBE278753E20089BE85 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B8C74BBF278753F10089BE85 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		B8C74BC32787559B0089BE85 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B8C74BC8278755FD0089BE85 /* NetworkingManager.swift */,
+				B8C74BC6278755E70089BE85 /* ParseDataManager.swift */,
+				B8C74BC4278755B10089BE85 /* NetwrokingErrors.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +220,6 @@
 			files = (
 				B8C74BAE278753010089BE85 /* LaunchScreen.storyboard in Resources */,
 				B8C74BAB278753010089BE85 /* Assets.xcassets in Resources */,
-				B8C74BA9278753010089BE85 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +230,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C74BA6278753010089BE85 /* ViewController.swift in Sources */,
 				B8C74BA2278753010089BE85 /* AppDelegate.swift in Sources */,
+				B8C74BCB278756770089BE85 /* NavTitleLabel.swift in Sources */,
+				B8C74BCF27878C950089BE85 /* SectionTitle.swift in Sources */,
 				B8C74BA4278753010089BE85 /* SceneDelegate.swift in Sources */,
+				B8C74BC22787543F0089BE85 /* Car.swift in Sources */,
+				B8C74BBC278753D10089BE85 /* HomeViewController.swift in Sources */,
+				B8C74BC5278755B10089BE85 /* NetwrokingErrors.swift in Sources */,
+				B8C74BC9278755FD0089BE85 /* NetworkingManager.swift in Sources */,
+				B8C74BCD27875B980089BE85 /* SearchBar.swift in Sources */,
+				B8C74BC7278755E70089BE85 /* ParseDataManager.swift in Sources */,
+				B8C74BC0278753F10089BE85 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B8C74BA7278753010089BE85 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B8C74BA8278753010089BE85 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B8C74BAC278753010089BE85 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,9 +386,11 @@
 				INFOPLIST_FILE = RentCarApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,9 +416,11 @@
 				INFOPLIST_FILE = RentCarApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
