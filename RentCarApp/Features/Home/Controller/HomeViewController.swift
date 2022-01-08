@@ -28,7 +28,7 @@ final class HomeViewController: UIViewController {
     private lazy var carsCollection: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private var cars: [Car] = []
-    private var brands: [String] = ["", "Tesla", "Audi", "Mercedes", "Kia"]
+    private var brands: [String] = []
     
     private lazy var mainStack: UIStackView = {
         let stack = UIStackView()
@@ -128,6 +128,7 @@ final class HomeViewController: UIViewController {
         do {
             let decodedData = try parseDataManager.parseData(from: data, expecting: [Car].self)
             reloadView(with: decodedData)
+            getBrands(from: decodedData)
         } catch {
             print(error.localizedDescription)
         }
@@ -138,6 +139,21 @@ final class HomeViewController: UIViewController {
             guard let self = self else { return }
             self.cars = cars
             self.carsCollection.reloadData()
+        }
+    }
+    
+    private func getBrands(from cars: [Car]) {
+        var newBrands: [String] = [""]
+        
+        for car in cars {
+            if !newBrands.contains(car.brand) {
+                newBrands.append(car.brand)
+            }
+        }
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.brands = newBrands
+            self?.brandsCollection.reloadData()
         }
     }
 }
@@ -197,17 +213,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == brandsCollection {
             return CGSize(width: 80, height: 80)
         }
-        return CGSize(width: mainStack.bounds.size.width, height: 250)
+        return CGSize(width: mainStack.bounds.size.width, height: 180)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == brandsCollection {
-            return 20
+            return 15
         }
-        return 30
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+        return 0
     }
 }
