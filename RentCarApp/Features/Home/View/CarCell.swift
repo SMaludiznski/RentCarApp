@@ -58,20 +58,20 @@ final class CarCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var rentPrice: UI
-}()
-
-private lazy var detailButton: UILabel = {
-    let label = UILabel()
-    label.translatesAutoresizingMaskIntoConstraints = false
-    label.textColor = .white
-    label.font = UIFont(name: "Avenir-Heavy", size: 20)
-    label.backgroundColor = UIColor(named: "Accent")Label = {
+    private lazy var rentPrice: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Avenir", size: 20)
         label.textColor = .lightGray
         return label
+    }()
+    
+    private lazy var detailButton: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.font = UIFont(name: "Avenir-Heavy", size: 20)
+        label.backgroundColor = UIColor(named: "Accent")
         label.clipsToBounds = true
         label.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
         label.layer.cornerRadius = 15
