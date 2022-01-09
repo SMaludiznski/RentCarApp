@@ -8,5 +8,6 @@
 import Foundation
 
 enum Constants {
-    static let apiUrl: String = "https://smaludiznski.github.io/newsapi/cars.json"
+    static var apiUrl: String = "https://smaludiznski.github.io/newsapi/cars.json"
+    static var carDetailUrl: String = "https://smaludiznski.github.io/newsapi/cars/"
 }

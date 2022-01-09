@@ -11,7 +11,6 @@ struct Car: Decodable {
     let id: Int
     let brand: String
     let model: String
-    let hP: Int
     let yearOfProduction: Int
     let photo: String
     let price: Int

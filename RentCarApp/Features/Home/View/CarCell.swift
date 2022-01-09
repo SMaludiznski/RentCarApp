@@ -11,9 +11,6 @@ final class CarCell: UICollectionViewCell {
     
     static let identifier = "CarCell"
     
-    private let networkManager: NetworkManagerProtocol = NetworkManager()
-    private var imageURL: String = ""
-    
     private lazy var cellContainer: UIView = {
         let cellView = UIView()
         cellView.translatesAutoresizingMaskIntoConstraints = false
@@ -43,15 +40,9 @@ final class CarCell: UICollectionViewCell {
     }()
     
     private lazy var detailStack: StandardHorizontalStack = StandardHorizontalStack()
-    
-    private lazy var carImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
+    private lazy var carImage: StandardImage = StandardImage(image: nil)
     private lazy var carName: CarInfoLabel = CarInfoLabel()
+    
     private lazy var carYearOfProduction: CarInfoLabel = {
         let label = CarInfoLabel()
         label.textColor = .lightGray
@@ -136,8 +127,7 @@ final class CarCell: UICollectionViewCell {
         carYearOfProduction.text = "\(car.yearOfProduction)"
         rentPrice.attributedText = getRentPriceText(from: car.price)
         
-        imageURL = car.photo
-        getCarImage()
+        carImage.configureImage(with: car.photo)
     }
     
     private func getRentPriceText(from price: Int) -> NSAttributedString {
@@ -145,28 +135,9 @@ final class CarCell: UICollectionViewCell {
         let text = "$\(string)/day"
         
         let attributtedText = NSMutableAttributedString(string: text)
-        attributtedText.addAttributes([.foregroundColor: UIColor(named: "Font") as Any,
+        attributtedText.addAttributes([.foregroundColor: UIColor(named: "DarkFont") as Any,
                                        .font: UIFont(name: "Avenir-Heavy", size: 20) as Any
                                       ], range: NSRange(location: 0, length: string.count + 1))
         return attributtedText
-    }
-    
-    private func getCarImage() {
-        networkManager.downloadData(from: imageURL) { [weak self] (completion) in
-            switch completion {
-            case .success(let data):
-                self?.generateImage(from: data)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    private func generateImage(from data: Data) {
-        DispatchQueue.main.async { [weak self] in
-            if let image = UIImage(data: data) {
-                self?.carImage.image = image
-            }
-        }
     }
 }

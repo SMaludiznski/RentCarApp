@@ -29,7 +29,7 @@ final class BrandCell: UICollectionViewCell {
         imageView.tintColor = .black
         return imageView
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()

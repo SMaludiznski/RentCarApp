@@ -8,7 +8,7 @@
 import UIKit
 
 final class NavTitleLabel: UIView {
-
+    
     private lazy var titleStack: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false

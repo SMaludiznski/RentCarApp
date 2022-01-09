@@ -13,10 +13,12 @@ final class HomeViewController: UIViewController {
     private let parseDataManager: ParseDataManagerProtocol = ParseDataManager()
     
     private lazy var navTitleLabel: NavTitleLabel = NavTitleLabel()
-    private lazy var searchBar: SearchBar = SearchBar()
+    
     
     private var selectedItem: IndexPath? = nil
     private var filter: String = ""
+    
+    private lazy var errorView: ErrorView = ErrorView()
     
     private lazy var brandsCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -28,6 +30,7 @@ final class HomeViewController: UIViewController {
     private lazy var carsCollection: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private var cars: [Car] = []
+    private var filteredCars: [Car] = []
     private var brands: [String] = []
     
     private lazy var mainStack: UIStackView = {
@@ -41,7 +44,7 @@ final class HomeViewController: UIViewController {
     
     private lazy var brandsSectionTitle: SectionTitle = SectionTitle()
     private lazy var carsSectionTitle: SectionTitle = SectionTitle()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadCars()
@@ -74,24 +77,13 @@ final class HomeViewController: UIViewController {
             mainStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             mainStack.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            brandsCollection.heightAnchor.constraint(equalToConstant: 90)
+            brandsCollection.heightAnchor.constraint(equalToConstant: 90),
         ])
     }
     
     private func setupNavigation() {
-        searchBar.sizeToFit()
         navigationController?.navigationBar.tintColor = UIColor(named: "Font")
-        showNavTitle()
-    }
-    
-    @objc private func showNavTitle() {
         navigationItem.titleView = navTitleLabel
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
-    }
-    
-    @objc private func showSearchBar() {
-        navigationItem.titleView = searchBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(showNavTitle))
     }
     
     private func setupBrandsCollection() {
@@ -113,13 +105,13 @@ final class HomeViewController: UIViewController {
         collection.backgroundColor = UIColor(named: "Background")
     }
     
-    private func downloadCars() {
+    @objc private func downloadCars() {
         networkManager.downloadData(from: Constants.apiUrl) { [weak self] (completion) in
             switch completion {
             case .success(let data):
                 self?.generateCars(from: data)
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.show(error: error)
             }
         }
     }
@@ -138,7 +130,9 @@ final class HomeViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.cars = cars
+            self.filteredCars = cars
             self.carsCollection.reloadData()
+            self.closeError()
         }
     }
     
@@ -156,6 +150,20 @@ final class HomeViewController: UIViewController {
             self?.brandsCollection.reloadData()
         }
     }
+    
+    private func show(error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else  { return }
+            self.errorView.configureView(with: error)
+            self.mainStack.isHidden = true
+            self.add(self.errorView)
+        }
+    }
+    
+    private func closeError() {
+        errorView.remove()
+        mainStack.isHidden = false
+    }
 }
 
 //MARK: - Setup collections
@@ -165,7 +173,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return brands.count
         }
         
-        return cars.count
+        return filteredCars.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -188,9 +196,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             fatalError()
         }
         
-        let car = cars[indexPath.row]
+        let car = filteredCars[indexPath.row]
         cell.configureCell(with: car)
-
+        
         return cell
     }
     
@@ -198,14 +206,22 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == brandsCollection, selectedItem != indexPath {
             
             guard let selectedItem = selectedItem,
-                    let cell = brandsCollection.cellForItem(at: indexPath) as? BrandCell,
-                    let oldCell = brandsCollection.cellForItem(at: selectedItem) as? BrandCell else {
+                  let cell = brandsCollection.cellForItem(at: indexPath) as? BrandCell,
+                  let oldCell = brandsCollection.cellForItem(at: selectedItem) as? BrandCell else {
                       fatalError()
                   }
             
             self.selectedItem = indexPath
+            filter = brands[indexPath.row]
+            
             oldCell.changeCellState()
             cell.changeCellState()
+            filteredCars = cars.filter{$0.brand == filter || filter == ""}
+            carsCollection.reloadData()
+        } else {
+            let vc = CarDetailViewController()
+            vc.configureView(with: filteredCars[indexPath.row])
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

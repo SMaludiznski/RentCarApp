@@ -8,7 +8,7 @@
 import UIKit
 
 final class CarInfoLabel: UILabel {
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -21,7 +21,7 @@ final class CarInfoLabel: UILabel {
     private func setupView() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.font = UIFont(name: "Avenir-Heavy", size: 20)
-        self.textColor = UIColor(named: "Font")
+        self.textColor = UIColor(named: "DarkFont")
         self.textAlignment = .right
     }
 }
